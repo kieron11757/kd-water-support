@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center - KD Water Solution</title>
+    <meta name="description" content="Get help with KD Water Solution app - FAQs, troubleshooting, and customer support">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #357ABD;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .support-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .support-card h2 {
+            color: #357ABD;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .support-card .icon {
+            font-size: 2rem;
+        }
+
+        .faq-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .faq-section h2 {
+            color: #357ABD;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #F8F9FA;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #357ABD;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: #E3F2FD;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+            background: white;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .contact-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .contact-section h2 {
+            color: #357ABD;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-method {
+            background: #F8F9FA;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: #4A90E2;
+            transform: translateY(-3px);
+        }
+
+        .contact-method .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4A90E2;
+        }
+
+        .contact-method h3 {
+            color: #357ABD;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        .emergency-section {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .emergency-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .emergency-button {
+            background: white;
+            color: #FF6B6B;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .emergency-button:hover {
+            background: #FFF5F5;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .footer a {
+            color: #E3F2FD;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .support-card,
+            .faq-section,
+            .contact-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛠️ KD Water Solution Support</h1>
+            <p>We're here to help you get the most out of your water solution</p>
+        </div>
+
+        <div class="emergency-section">
+            <h2>🚨 Water Emergency?</h2>
+            <p>If you're experiencing a water quality emergency or contamination issue, contact us immediately.</p>
+            <button class="emergency-button" onclick="window.location.href='tel:+15551234567'">
+                📞 Emergency Hotline: (555) 123-4567
+            </button>
+        </div>
+
+        <div class="support-grid">
+            <div class="support-card">
+                <h2><span class="icon">📚</span>Getting Started</h2>
+                <ul>
+                    <li>Download and install the KD Water Solution app</li>
+                    <li>Create your account and verify your email</li>
+                    <li>Connect your water monitoring devices</li>
+                    <li>Set up your water quality preferences</li>
+                    <li>Configure notifications and alerts</li>
+                </ul>
+            </div>
+
+            <div class="support-card">
+                <h2><span class="icon">🔧</span>Troubleshooting</h2>
+                <ul>
+                    <li>App won't connect to your device</li>
+                    <li>Water quality readings seem incorrect</li>
+                    <li>Notifications not working properly</li>
+                    <li>Login or account access issues</li>
+                    <li>Payment and subscription problems</li>
+                </ul>
+            </div>
+
+            <div class="support-card">
+                <h2><span class="icon">💧</span>Water Quality</h2>
+                <ul>
+                    <li>Understanding your water test results</li>
+                    <li>Setting safe water quality thresholds</li>
+                    <li>Filter replacement schedules</li>
+                    <li>Maintenance reminders and alerts</li>
+                    <li>Water treatment recommendations</li>
+                </ul>
+            </div>
+
+            <div class="support-card">
+                <h2><span class="icon">📱</span>App Features</h2>
+                <ul>
+                    <li>Real-time water quality monitoring</li>
+                    <li>Historical data and trends</li>
+                    <li>Smart notifications and alerts</li>
+                    <li>Device management and settings</li>
+                    <li>Report generation and sharing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How do I set up my water monitoring device?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Setting up your device is simple:</p>
+                    <ol>
+                        <li>Install the KD Water Solution app and create an account</li>
+                        <li>Follow the in-app setup wizard</li>
+                        <li>Connect your device to Wi-Fi using the app</li>
+                        <li>Install the device at your water source following the included instructions</li>
+                        <li>Complete the calibration process through the app</li>
+                    </ol>
+                    <p>The entire process typically takes 10-15 minutes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What water parameters does the app monitor?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our system monitors key water quality parameters including:</p>
+                    <ul>
+                        <li>pH levels (acidity/alkalinity)</li>
+                        <li>Total Dissolved Solids (TDS)</li>
+                        <li>Chlorine levels</li>
+                        <li>Temperature</li>
+                        <li>Turbidity (water clarity)</li>
+                        <li>Electrical conductivity</li>
+                        <li>Optional: Heavy metals and bacteria (with premium sensors)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How often should I replace my water filters?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Filter replacement depends on your water usage and quality:</p>
+                    <ul>
+                        <li><strong>Standard filters:</strong> Every 3-6 months</li>
+                        <li><strong>Carbon filters:</strong> Every 6-12 months</li>
+                        <li><strong>Reverse osmosis membranes:</strong> Every 12-24 months</li>
+                    </ul>
+                    <p>The app will send you personalized reminders based on your actual usage and water quality data.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Why am I getting water quality alerts?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Water quality alerts are triggered when:</p>
+                    <ul>
+                        <li>Parameters exceed safe drinking water standards</li>
+                        <li>Sudden changes in water quality are detected</li>
+                        <li>Filter replacement is overdue</li>
+                        <li>Device maintenance is required</li>
+                        <li>System detects potential contamination</li>
+                    </ul>
+                    <p>Always take water quality alerts seriously and follow the recommended actions in the app.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Can I use the app without an internet connection?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The app has limited offline functionality:</p>
+                    <ul>
+                        <li>View previously downloaded water quality data</li>
+                        <li>Access offline help and troubleshooting guides</li>
+                        <li>Record manual water test results</li>
+                    </ul>
+                    <p>However, real-time monitoring, alerts, and data synchronization require an internet connection.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How do I export my water quality data?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>To export your data:</p>
+                    <ol>
+                        <li>Open the app and go to "Reports" section</li>
+                        <li>Select the date range you want to export</li>
+                        <li>Choose your preferred format (PDF, CSV, or Excel)</li>
+                        <li>Tap "Export" and select where to save or share the file</li>
+                    </ol>
+                    <p>Premium users can set up automatic monthly reports via email.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Our Support Team</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p><a href="mailto:support@kdwatersolution.com">support@kdwatersolution.com</a></p>
+                    <p><small>Response within 24 hours</small></p>
+                </div>
+
+                <div class="contact-method">
+                    <div class="icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Available in the app</p>
+                    <p><small>Mon-Fri: 9 AM - 6 PM EST</small></p>
+                </div>
+
+                <div class="contact-method">
+                    <div class="icon">📞</div>
+                    <h3>Phone Support</h3>
+                    <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+                    <p><small>Mon-Fri: 9 AM - 6 PM EST</small></p>
+                </div>
+
+                <div class="contact-method">
+                    <div class="icon">🏢</div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday</p>
+                    <p>9:00 AM - 6:00 PM EST</p>
+                    <p><small>Closed weekends & holidays</small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 KD Water Solution. All rights reserved.</p>
+            <p>
+                <a href="kd-water.html">Privacy Policy</a> | 
+                <a href="mailto:legal@kdwatersolution.com">Legal</a> | 
+                <a href="mailto:contact@kdwatersolution.com">Contact</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+
+        // Smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
